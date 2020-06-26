@@ -41,8 +41,8 @@ public class CidadeResource {
 	}
 	
 	//obter cidade pela latitude e longitude
-	@PostMapping("/buscalatitudelongitude")
-	public List<Cidade> CidadeComLatitudeLongitude(@RequestBody int latitude, @RequestBody int longitude){
+	@GetMapping(path ="/buscalatitudelongitude/{latitude}/{longitude}")
+	public List<Cidade> CidadeComLatitudeLongitude(@PathVariable int latitude, @PathVariable int longitude){
 		
 		return cidRepo.findByLatitudeAndLongitude(latitude, longitude);
 	}
